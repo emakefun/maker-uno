@@ -1,7 +1,7 @@
 #define DIR1 4  // define direction 4 port
 #define PWM1 5  // define pwm1 5 port
 #define DIR2 7  // define direction 7 port
-#define PWM2 6  // define pwm1 6 port
+#define PWM2 6  // define pwm2 6 port
 
 void setup() {
   pinMode(DIR1, OUTPUT);
