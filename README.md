@@ -60,7 +60,7 @@
 
       ​                         ![1](./Maker_UNO/step2.jpg) 
 
-      3）最后选择名为“CH341SER_for_64bit_win7”的驱动程序文件，下载[CH340驱动](./esp32/CH340驱动.zip)，请根据自己的电脑系统型号选择相应的驱动版本！
+      3）最后选择名为“CH341SER_for_64bit_win7”的驱动程序文件，下载[CH340驱动](https://github.com/emakefun/maker-uno/releases/download/untagged-0762de549e60faece211/CH340_Driver.zip)，请根据自己的电脑系统型号选择相应的驱动版本！
 
       <img src="./Maker_UNO/CH340 Driver.png" alt="1" />
 
@@ -120,7 +120,7 @@
 
 ## 测试程序
 
-[点击下载电机测试程序](./Maker_UNO/DC_Motor.zip)
+[点击下载电机测试程序](https://github.com/emakefun/maker-uno/releases/download/untagged-e9fa9755226a07f0a0f8/DC_MotorTest.zip)
 
 ## 联系我们
 
