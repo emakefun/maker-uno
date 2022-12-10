@@ -1,12 +1,21 @@
 # Maker-UNO 使用说明书
+* [产品简介](##产品简介) 
+* [产品参数](##产品参数) 
+* [引脚说明](##引脚说明) 
+* [电机功能说明](##电机功能说明) 
+* [指示灯说明](##指示灯说明) 
+* [Maker_UNO驱动安装](##Maker_UNO驱动安装) 
+* [通过Ardunio IDE上传程序](## 通过Ardunio IDE上传程序)
+* [ 测试程序](##  测试程序) 
 
 ## [淘宝购买链接](https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21556097795.26.23ae6b0dJkBCqZ&id=680974076367)
 
 ![1](./Maker_UNO/Maker_UNO.png)
 
+
 ## 产品简介
 
-​	Maker-UNO是基于Arduino UNO R3基础上开发的一款适用于创客教育的标志性产品， 功能和引脚完全兼容传统Arduino Uno主板 ,板子电机驱动芯片。
+​	Maker-UNO是基于Arduino UNO R3基础上开发的一款适用于创客教育的标志性产品， 功能和引脚完全兼容传统Arduino Uno主板 ,板载电机驱动芯片，增加排针IO接口。
 
 ## 产品参数
 
@@ -21,15 +30,58 @@
 * 软件支持Mixly、Arduino IDE、Mblock、Mind+
 * DC接头：3.5mm
 * 2个电机端口；输出电流最大2A
-* M4定位孔直径：4.6mm，兼容乐高
+* M4定位孔，兼容乐高
 
 ## 引脚说明 
 
-![ ](./Maker_UNO/Maker_UNO_标注图.png)
+![ ](./Maker_UNO/Maker_UNO_CalloutDrawing.png)
 
 
 
 #### **[产品原理图](./Maker_UNO/Maker_Uno.pdf)**
+
+## 电机功能说明
+![ ](./Maker_UNO/Maker_UNO_Motor.png)
+|DIR1(D4)|PWM1(D5)|DIR2(D7)|PWM2(D6)| OUT1+ | OUT1- | OUT2+ | OUT2- | Mode |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :----: |
+| H | H | — | — | H | L | — | — | `M1正转` |
+| L | H | — | — | L | H | — | — | `M1反转` |
+| — | — | H | H | — | — | H | L | `M2正转` |
+| — | — | L | H | — | — | L | H | `M2反转` |
+| — | L | — | L | L | L | L | L | `M1,M2停止` |
+
+**Arduino 电机测试案例**
+
+```
+#define DIR1 4  // define direction 4 port
+#define PWM1 5  // define pwm1 5 port
+#define DIR2 7  // define direction 7 port
+#define PWM2 6  // define pwm2 6 port
+
+void setup() {
+  pinMode(DIR1, OUTPUT);	//initialize the DIR1 pin as an output
+  pinMode(PWM1, OUTPUT);	//initialize the PWM1 pin as an output
+  pinMode(DIR2, OUTPUT);	//initialize the DIR2 pin as an output
+  pinMode(PWM2, OUTPUT);	//initialize the PWM2 pin as an output
+}
+
+void loop() {
+  // forward speed 255
+  digitalWrite(DIR1, HIGH);
+  digitalWrite(PWM1, 255);
+  digitalWrite(DIR2, HIGH);
+  digitalWrite(PWM2, 255);
+  delay(2000);
+  // reversal speed 255
+  digitalWrite(DIR1, LOW);
+  digitalWrite(PWM1, 255);
+  digitalWrite(DIR2, LOW);
+  digitalWrite(PWM2, 255);
+  delay(2000);
+}
+```
+
+[点击下载电机测试程序](https://github.com/emakefun/maker-uno/releases/download/v1.0.0/DC_MotorTest.zip)
 
 ## 指示灯说明
 
@@ -46,7 +98,7 @@
 
    如果没有显示端口或者显示以下状态时，说明驱动没有安装成功。
 
-   ![1](./Maker_UNO/unport.jpg)
+   ![`](./Maker_UNO/unport.jpg)
 
    2. 安装驱动
 
@@ -118,9 +170,6 @@
 
 ![1](./Maker_UNO/17.png)
 
-## 测试程序
-
-[点击下载电机测试程序](https://github.com/emakefun/maker-uno/releases/download/v1.0.0/DC_MotorTest.zip)
 
 ## 联系我们
 
