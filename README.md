@@ -9,7 +9,7 @@
 
 ## [购买链接](https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21556097795.26.23ae6b0dJkBCqZ&id=680974076367)
 
-![1](./Maker-Uno/Maker_UNO.png)
+![1](./Maker-Uno/Maker_Uno.png)
 
 
 ## 产品简介
@@ -35,7 +35,7 @@
 | bootloader烧录方式 | SPI | SPI |
 ## 引脚说明 
 
-![ ](./Maker-Uno/Maker_UNO_CalloutDrawing.png)
+![ ](./Maker-Uno/Maker_Uno_CalloutDrawing.png)
 
 
 
@@ -45,7 +45,7 @@
 
 ​		电机驱动芯片为TC78H660FTG，最大驱动电流为2A。只需要2路PWM和2路普通io就可以驱动2路电机，减少PWM口占用，不能驱动大功率电机，只能驱动常规的TT电机与积木电机。
 
-![ ](./Maker-Uno/Maker_UNO_Motor.png)
+![ ](./Maker-Uno/Maker_Uno_Motor.png)
 
 DIR1：控制 M1电机方向		DIR2：控制M2电机方向		PWM1：控制M1电机转		PWM2：控制M2电机转速
 |DIR1(D4)|PWM1(D5)|DIR2(D7)|PWM2(D6)| OUT1+ | OUT1- | OUT2+ | OUT2- | Mode |
