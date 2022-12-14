@@ -39,7 +39,7 @@
 
 
 
-#### **[产品原理图](./Maker-Uno /Maker_Uno.pdf)**
+#### **[产品原理图](./Maker-Uno/Maker_Uno.pdf)**
 
 ## 电机功能说明
 
