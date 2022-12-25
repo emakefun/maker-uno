@@ -9,12 +9,12 @@
 
 ## [购买链接](https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21556097795.26.23ae6b0dJkBCqZ&id=680974076367)
 
-![Maker_Uno](./Maker-Uno/Maker_Uno.png)
+![Maker_UNO](./picture/Maker_UNO.png)
 
 
 ## 产品简介
 
-​	Maker-Uno是基于Arduino Uno R3基础上开发的一款适用于创客的标志性产品， 功能和引脚完全兼容Arduino Uno R3主板 ；板载两路电机驱动，最大驱动电流可达2A；所有IO口用排针引出；串口芯片为CH340G。
+​	Maker-Uno是基于Arduino Uno R3基础上开发的一款适用于创客的标志性产品， 功能和引脚完全兼容传统Arduino Uno主板 ,板载2路电机驱动芯片最大驱动电流2A，所有IO口用排针引出，串口芯片为CH340G。
 
 ## 产品参数
 |功能|Arduino Uno|Maker-Uno|
@@ -35,17 +35,17 @@
 
 ## 引脚说明 
 
-![Maker_Uno_CalloutDrawing](./Maker-Uno/Maker_Uno_CalloutDrawing.png)
+![ ](./picture/Maker_UNO_CalloutDrawing.png)
 
 
 
-#### **[产品原理图](./Maker-Uno/Maker_Uno.pdf)**
+#### **[产品原理图](./picture/Maker_Uno.pdf)**
 
 ## 电机功能说明
 
-​		电机驱动芯片为TC78H660FTG，最大驱动电流为2A。只需要2路PWM和2路普通IO就可以驱动两路电机，减少PWM口占用，不能驱动大功率电机，只能驱动常规的TT电机与积木电机。
+​		电机驱动芯片为TC78H660FTG，最大驱动电流为2A。只需要2路PWM和2路普通io就可以驱动2路电机，减少PWM口占用，不能驱动大功率电机，只能驱动常规的TT电机与积木电机。
 
-![Maker_Uno_Motor](./Maker-Uno/Maker_Uno_Motor.png)
+![ ](./picture/Maker_UNO_Motor.png)
 
 DIR1：控制 M1电机方向		DIR2：控制M2电机方向		PWM1：控制M1电机转		PWM2：控制M2电机转速
 |DIR1(D4)|PWM1(D5)|DIR2(D7)|PWM2(D6)| OUT1+ | OUT1- | OUT2+ | OUT2- | Mode |
@@ -73,7 +73,6 @@ void setup() {
   pinMode(PWM1, OUTPUT);
   pinMode(DIR2, OUTPUT);
   pinMode(PWM2, OUTPUT);
-  Serial.println("starting......");
 }
 
 void loop() {
@@ -110,23 +109,27 @@ void loop() {
 - RX 标识的LED灯为串口接收指示灯，当串口接收到数据，LED灯会闪烁。
 - TX 标识的LED灯为串口发送指示灯，当串口发送数据时，LED灯会闪烁。
 
-## CH340G驱动下载
+## CH340G驱动安装
 [CH340G驱动下载链接](https://www.wch.cn/downloads/CH341SER_ZIP.html)
 
 ## FAQ:
 
 1. 板子能驱动那些电机？
 
- 答：驱动TT塑料电机与积木电机，不支持驱动大功率电机(金属电机)。	
+ 答：支持驱动TT塑料电机与积木电机，不支持驱动大功率电机。电机驱动IC最大驱动电流为2A。
 
 2. 为什么电机不动？
 
-答：1.检查程序是否上传成功；2. 供电是否DC头供电。
+答：请先检查是否接上外接电源，如果没有接外接电源请接上外接电源。若外接电源接上了，请检查程序是否上传成功。
 
 3. 供电方式?
 
-答：3.5mm DC头6-12V供电。
+   答：3.5mm DC头供电，DC供电范围为：6-16V。
+
+​	4.如何确认bootloader是否掉了？
+
+答：按下复位键后，L指示灯连续闪烁3三次表示bootloader没有掉，如果按下复位键L指示灯没有闪烁那就表明bootloader掉了，需要重新烧录bootloader。
 
 ## 联系我们
 
-**技术 + 合作：WX:  null-lab**
+**技术 + 合作：WX号:  null-lab**
