@@ -1,4 +1,6 @@
 # Maker-Uno 使用说明书
+[中文版](README_ZH.md)
+
 * [产品简介](##产品简介) 
 * [产品参数](##产品参数) 
 * [引脚说明](##引脚说明) 
@@ -9,7 +11,7 @@
 
 ## [购买链接](https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21556097795.26.23ae6b0dJkBCqZ&id=680974076367)
 
-![1](./Maker-Uno/Maker_Uno.png)
+![Maker_UNO](./picture/Maker_Uno.png)
 
 
 ## 产品简介
@@ -32,20 +34,20 @@
 | 电机驱动芯片 | 无 | TC78H660FTG |
 | IO接口 | 排母 | 排针+排母 |
 | 尺寸/重量 | 68.6 x 53.4 mm / 25g | 68.6 x 53.4 mm / 25g |
-| bootloader烧录方式 | SPI | SPI |
+
 ## 引脚说明 
 
-![ ](./Maker-Uno/Maker_Uno_CalloutDrawing.png)
+![ Maker_UNO_CalloutDrawing  ](./picture/Maker_Uno_CalloutDrawing.png)
 
 
 
-#### **[产品原理图](./Maker-Uno/Maker_Uno.pdf)**
+#### **[产品原理图](./picture/Maker_Uno.pdf)**
 
 ## 电机功能说明
 
 ​		电机驱动芯片为TC78H660FTG，最大驱动电流为2A。只需要2路PWM和2路普通io就可以驱动2路电机，减少PWM口占用，不能驱动大功率电机，只能驱动常规的TT电机与积木电机。
 
-![ ](./Maker-Uno/Maker_Uno_Motor.png)
+![ Maker_UNO_Motor ](./picture/Maker_Uno_Motor.png)
 
 DIR1：控制 M1电机方向		DIR2：控制M2电机方向		PWM1：控制M1电机转		PWM2：控制M2电机转速
 |DIR1(D4)|PWM1(D5)|DIR2(D7)|PWM2(D6)| OUT1+ | OUT1- | OUT2+ | OUT2- | Mode |
@@ -116,16 +118,20 @@ void loop() {
 
 1. 板子能驱动那些电机？
 
- 答：驱动TT塑料电机与积木电机，不支持驱动大功率电机。	
+ 答：支持驱动TT塑料电机与积木电机，不支持驱动大功率电机。电机驱动IC最大驱动电流为2A。
 
 2. 为什么电机不动？
 
-答：USB供电时时驱动不了电机的，需外接电源。
+答：请先检查是否接上外接电源，如果没有接外接电源请接上外接电源。若外接电源接上了，请检查程序是否上传成功。
 
 3. 供电方式?
 
-答：3.5mm DC头供电。
+   答：3.5mm DC头供电，DC供电范围为：6-16V。
+
+​	4.如何确认bootloader是否掉了？
+
+答：按下复位键后，L指示灯连续闪烁3三次表示bootloader没有掉，如果按下复位键L指示灯没有闪烁那就表明bootloader掉了，需要重新烧录bootloader。
 
 ## 联系我们
 
-**技术 + 合作：TEL:  null-lab(WX号)**
+**技术 + 合作：WX号:  null-lab**
