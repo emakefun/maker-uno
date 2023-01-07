@@ -1,65 +1,68 @@
-# Maker-Uno 使用说明书
-[中文版](README_ZH.md)
+# Maker-Uno Operation Specification
+[中文版](README_ZH.md) English
 
-* [产品简介](##产品简介) 
-* [产品参数](##产品参数) 
-* [引脚说明](##引脚说明) 
-* [电机功能说明](##电机功能说明) 
-* [指示灯说明](##指示灯说明) 
-* [CH340G驱动安装](##CH340G驱动安装) 
-* [FAQ](##FAQ) 
+- [Product Brief Introduction](#product-brief-introduction)
+- [Product Parameter](#product-parameter)
+- [Pin Specification](#pin-specification)
+- [Motor Function Description](#motor-function-description)
+- [Indicator Description](#indicator-description)
+- [CH340G Driver Installation](#ch340g-driver-installation)
+- [FAQ:](#faq)
+- [Contact us](#contact-us)
 
-## [购买链接](https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21556097795.26.23ae6b0dJkBCqZ&id=680974076367)
+## [Purchase Link](https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-21556097795.26.23ae6b0dJkBCqZ&id=680974076367)
 
-![Maker_Uno](./picture/Maker_Uno.png)
+![1](./Maker-Uno/Maker_Uno.png)
 
 
-## 产品简介
+## Product Brief Introduction
 
-​	Maker-Uno是基于Arduino Uno R3基础上开发的一款适用于创客的标志性产品， 功能和引脚完全兼容传统Arduino Uno主板 ,板载2路电机驱动芯片最大驱动电流2A，所有IO口用排针引出，串口芯片为CH340G。
+​	Maker-Uno is a representative product for creator based on Arduino Uno R3,Features and pins are fully compatible with traditional Arduino Uno motherboards,Maximum driving current 2A of onboard 2-way motor drive chip,All I/O ports are drawn with Pin Header,The serial port chip is CH340G。
 
-## 产品参数
-|功能|Arduino Uno|Maker-Uno|
+## Product Parameter
+|function|Arduino Uno|Maker-Uno|
 | :-: | :-: | :-: |
-| 微控制器 | ATmega328 | ATmega328 |
-| 串口芯片 | Atmega16u2 | Ch340G |
-| 输入电压 | 7-12 V | 7-16V |
-| 工作电压 (输出电流) | 5V(500mA) | 5V(1000mA) |
-| 3.3V最大输出电流 | 150mA | 500mA |
-| 主频 | 外部晶振 16M | 外部晶振 16M |
-| 输入电压 | 7-12 V | 7-16V |
-| Flash | 32K(引导占0.5k) | 32K(引导占0.5k) |
+| microcontroller | ATmega328 | ATmega328 |
+| Serial chip | Atmega16u2 | Ch340G |
+| input voltage | 7-12 V | 7-16V |
+| working voltage (current output) | 5V(500mA) | 5V(1000mA) |
+| 3.3V maximum current output | 150mA | 500mA |
+| basic frequency | External crystal oscillator 16M | External crystal oscillator 16M |
+| input voltage | 7-12 V | 7-16V |
+| Flash | 32K(Bootloader occupy 0.5k) | 32K(Bootloader occupy 0.5k) |
 | SRAM | 2K | 2K |
 | ERROM | 1K | 1K |
-| 电机驱动芯片 | 无 | TC78H660FTG |
-| IO接口 | 排母 | 排针+排母 |
-| 尺寸/重量 | 68.6 x 53.4 mm / 25g | 68.6 x 53.4 mm / 25g |
+| Motor drive chip | none | TC78H660FTG |
+| IO interface |  Female Header | Pin Header+Female Header |
+| size/weight | 68.6 x 53.4 mm / 25g | 68.6 x 53.4 mm / 25g |
+| bootloader download mode | SPI | SPI |
+## Pin Specification 
 
-## 引脚说明 
+![ ](./Maker-Uno/Maker_Uno_CalloutDrawing.png)
 
-![Maker_Uno_CalloutDrawing](./picture/Maker_Uno_CalloutDrawing.png)
 
-#### **[产品原理图](picture/Maker_Uno.pdf)**
 
-## 电机功能说明
+#### **[Product Schematic Diagram](./Maker-Uno/Maker_Uno.pdf)**
 
-​		电机驱动芯片为TC78H660FTG，最大驱动电流为2A。只需要2路PWM和2路普通io就可以驱动2路电机，减少PWM口占用，不能驱动大功率电机，只能驱动常规的TT电机与积木电机。
+## Motor Function Description
 
-![Maker_Uno_Motor](./picture/Maker_Uno_Motor.png)
+​		Motor drive chip is TC78H660FTG，The maximum driving current is 2A.Only 2 PWM channels and 2 ordinary io channels are needed to drive 2-way motor,Reduce the occupation of PWM port,Can not drive high-power motor，Only conventional TT motor and building block motor can be driven.
 
-DIR1：控制 M1电机方向		DIR2：控制M2电机方向		PWM1：控制M1电机转		PWM2：控制M2电机转速
+![ ](./Maker-Uno/Maker_Uno_Motor.png)
+
+DIR1：Control the direction of M1 motor		DIR2：Control the direction of M2 motor		PWM1：Control the speed of M1 motor		PWM2：Control the speed of M2 motor
 |DIR1(D4)|PWM1(D5)|DIR2(D7)|PWM2(D6)| OUT1+ | OUT1- | OUT2+ | OUT2- | Mode |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :----: |
-| H | H | — | — | H | L | — | — | `M1正转` |
-| L | H | — | — | L | H | — | — | `M1反转` |
-| — | — | H | H | — | — | H | L | `M2正转` |
-| — | — | L | H | — | — | L | H | `M2反转` |
-| — | L | — | L | L | L | L | L | `M1,M2停止` |
+| H | H | — | — | H | L | — | — | `M1 foreward` |
+| L | H | — | — | L | H | — | — | `M1 reversal` |
+| — | — | H | H | — | — | H | L | `M2 foreward` |
+| — | — | L | H | — | — | L | H | `M2 reversal` |
+| — | L | — | L | L | L | L | L | `M1,M2 stop` |
 
-**注：** L :低电平 		H：高电平		—：无		
+**注：** L :low level 		H：high level		—：none		
 
 
-**Arduino 电机测试案例**
+**Arduino Motor Test Case**
 
 ```
 #define DIR1 4  // define direction 4 port
@@ -100,36 +103,37 @@ void loop() {
 }
 ```
 
-[点击下载电机测试程序](https://github.com/emakefun/maker-uno/releases/download/v1.0.0/DC_MotorTest.zip)
+[Click to download the motor test program](https://github.com/emakefun/maker-uno/releases/download/v1.0.0/DC_MotorTest.zip)
 
-## 指示灯说明
+## Indicator Description
 
-- ON标识的红色等为电源指示灯，供电后会常亮
-- L 标识的黄色灯为BootLoader识别指示灯，当通过USB连接电脑后，端口识别到板子的时候该LED灯会快速闪烁。
-- RX 标识的LED灯为串口接收指示灯，当串口接收到数据，LED灯会闪烁。
-- TX 标识的LED灯为串口发送指示灯，当串口发送数据时，LED灯会闪烁。
+- ON symbol : The red indicator indicates the power indicator which will be steady on after the power supply.
+- L symbol  :The yellow indicator indicates the BootLoader indicator,When connected to the computer via USB, the LED light will blink quickly when the port recognizes the board.
+- RX symbol :The LED indicator is the serial port receiving indicator，When the serial port receives data, the LED light will blink.
+- TX symbol :The LED indicator is the serial port sending indicator，When the serial port sends data, the LED light will blink.
 
-## CH340G驱动安装
-[CH340G驱动下载链接](https://www.wch.cn/downloads/CH341SER_ZIP.html)
+## CH340G Driver Installation
+[CH340G Driver download link](https://www.wch.cn/downloads/CH341SER_ZIP.html)
 
 ## FAQ:
 
-1. 板子能驱动那些电机？
+1. Which motors can the board drive？
 
- 答：支持驱动TT塑料电机与积木电机，不支持驱动大功率电机。电机驱动IC最大驱动电流为2A。
+Reply：Support Drive TT plastic motor and building block motor, do not support to drive high-power motor。	
 
-2. 为什么电机不动？
+2. Why is the motor not moving？
 
-答：请先检查是否接上外接电源，如果没有接外接电源请接上外接电源。若外接电源接上了，请检查程序是否上传成功。
+Reply：If the motor cannot be driven by USB power supply, external power supply is needed.
 
-3. 供电方式?
+3. Power supply mode?
 
-   答：3.5mm DC头供电，DC供电范围为：6-16V。
+Reply：3.5mm DC head power supply.
 
-​	4.如何确认bootloader是否掉了？
+4. How to confirm whether bootloader is lost?
 
-答：按下复位键后，L指示灯连续闪烁3三次表示bootloader没有掉，如果按下复位键L指示灯没有闪烁那就表明bootloader掉了，需要重新烧录bootloader。
+Reply：After pressing the reset button,if the 'L' indicator blinks for three consecutive times, the bootloader is not lost,if the 'L' indicator is not blinking,the bootloader is lost that which
+need to be downloaded.
 
-## 联系我们
+## Contact us
 
-**技术 + 合作：WX号:  null-lab**
+**Technology + cooperation：TEL:  null-lab(Wechat number)**
