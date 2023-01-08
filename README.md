@@ -119,22 +119,25 @@ void loop() {
 
 ## FAQ:
 
-1. Which motors can the board drive？
+1. Which motors can the board drive?
 
-Reply：Support Drive TT plastic motor and building block motor, do not support to drive high-power motor。	
+Reply：Support Drive TT plastic motor and building block motor, do not support to drive          
+              high-power motor,The maximum driving current of motor drive IC is 2A.	
 
-2. Why is the motor not moving？
+2. Why is the motor not working?
 
-Reply：If the motor cannot be driven by USB power supply, external power supply is needed.
+Reply：Check whether the external power supply is connected first,if not, connect the external 
+              power supply.If the external power supply is connected, check whether the program is successfully uploaded.
 
 3. Power supply mode?
 
-Reply：3.5mm DC head power supply.
+Reply：3.5mm DC head power supply,The DC power supply range is 6-16V.
 
 4. How to confirm whether bootloader is lost?
 
-Reply：After pressing the reset button,if the 'L' indicator blinks for three consecutive times, the bootloader is not lost,if the 'L' indicator is not blinking,the bootloader is lost that which
-need to be downloaded.
+Reply：After pressing the reset button,if the 'L' indicator blinks for three consecutive times, the bootloader is not lost,
+
+​			  if the 'L' indicator is not blinking,the bootloader is lost that which need to be downloaded.
 
 ## Contact us
 
