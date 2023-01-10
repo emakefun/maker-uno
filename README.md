@@ -61,7 +61,7 @@ DIR1：Control the direction of M1 motor		DIR2：Control the direction of M2 mot
 | — | — | L | H | — | — | L | H | `M2 reversal` |
 | — | L | — | L | L | L | L | L | `M1,M2 stop` |
 
-**注：** L :low level 		H：high level		—：none		
+**Note：** L :low level &nbsp;&nbsp; H：high level	&nbsp;&nbsp;	—：none		
 
 
 **Arduino Motor Test Case**
