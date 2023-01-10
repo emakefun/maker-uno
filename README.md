@@ -25,7 +25,7 @@
 |function|Arduino Uno|Maker-Uno|
 | :-: | :-: | :-: |
 | microcontroller | ATmega328 | ATmega328 |
-| Serial chip | Atmega16u2 | Ch340G |
+| Serial chip | Atmega16u2 | CH340G |
 | input voltage | 7-12 V | 7-16V |
 | working voltage (current output) | 5V(500mA) | 5V(1000mA) |
 | 3.3V maximum current output | 150mA | 500mA |

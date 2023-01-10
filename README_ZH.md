@@ -21,7 +21,7 @@
 |功能|Arduino Uno|Maker-Uno|
 | :-: | :-: | :-: |
 | 微控制器 | ATmega328 | ATmega328 |
-| 串口芯片 | Atmega16u2 | Ch340G |
+| 串口芯片 | Atmega16u2 | CH340G |
 | 输入电压 | 7-12 V | 7-16V |
 | 工作电压 (输出电流) | 5V(500mA) | 5V(1000mA) |
 | 3.3V最大输出电流 | 150mA | 500mA |
