@@ -20,7 +20,7 @@
 ## 产品参数
 |功能|Arduino Uno|Maker-Uno|
 | :-: | :-: | :-: |
-| 微控制器 | ATmega328 | ATmega328 |
+| 微控制器 | ATmega328P | ATmega328P |
 | 串口芯片 | Atmega16u2 | CH340G |
 | 输入电压 | 7-12 V | 7-16V |
 | 工作电压 (输出电流) | 5V(500mA) | 5V(1000mA) |
@@ -75,31 +75,28 @@ void setup() {
 }
 
 void loop() {
-  // forward speed 255
   Serial.println("M1,M2 Forward");
   digitalWrite(DIR1, HIGH);
-  digitalWrite(PWM1, 255);
+  analogWrite(PWM1, 255);
   digitalWrite(DIR2, HIGH);
-  digitalWrite(PWM2, 255);
-  delay(2000);
+  analogWrite(PWM2, 255);
+  delay(1000);
   // reversal speed 255
   Serial.println("M1,M2 Reversal");
   digitalWrite(DIR1, LOW);
-  digitalWrite(PWM1, 255);
+  analogWrite(PWM1, 255);
   digitalWrite(DIR2, LOW);
-  digitalWrite(PWM2, 255);
-  delay(2000);
+  analogWrite(PWM2, 255);
+  delay(1000);
   // Stop speed 255
   Serial.println("M1,M2 Stop");
-  digitalWrite(DIR1, LOW);
-  digitalWrite(PWM1, LOW);
-  digitalWrite(DIR2, LOW);
-  digitalWrite(PWM2, LOW);
-  delay(2000);
+  analogWrite(PWM1, 0);
+  analogWrite(PWM2, 0);
+  delay(1000); 
 }
 ```
 
-[点击下载电机测试程序](https://github.com/emakefun/maker-uno/releases/download/v1.0.0/DC_MotorTest.zip)
+[点击下载电机测试程序](./example/DC_Motor/DC_Motor.ino)
 
 ## 指示灯说明
 
@@ -111,24 +108,28 @@ void loop() {
 ## CH340G驱动安装
 [CH340G驱动下载链接](https://www.wch.cn/downloads/CH341SER_ZIP.html)
 
+安装方法请自行百度
+
 ## FAQ:
 
 1. 板子能驱动那些电机？
 
- 答：支持驱动TT塑料电机与积木电机，不支持驱动大功率电机。电机驱动IC最大驱动电流为2A。
+ 答：支持驱动TT塑料电机与积木电机，支持12V 2A内的电机，不支持大功率电机。
 
 2. 为什么电机不动？
 
-答：请先检查是否接上外接电源，如果没有接外接电源请接上外接电源。若外接电源接上了，请检查程序是否上传成功。
+答：请先检查是否接上外接了6~16V以内的DC头电源，如果没有接外接电源请接上外接电源。若外接电源接上了，请检查程序是否上传成功。
 
-3. 供电方式?
-
-答：3.5mm DC头供电，DC供电范围为：6-16V。
-
-4. 如何确认bootloader是否掉了？
+3. 如何确认bootloader是否掉了？
 
 答：按下复位键后，L指示灯连续闪烁3三次表示bootloader没有掉，如果按下复位键L指示灯没有闪烁那就表明bootloader掉了，需要重新烧录bootloader。
 
+  4.如何确定板子损坏
+
+a、先确定板子上的ON灯是否亮起，如果供电正确，ON不亮代表，主板有地方短路，可能芯片或者电源烧了
+
+b、检查bootloard是否正常，如不正常请重新上传或者返厂维修。
+
 ## 联系我们
 
-**技术 + 合作：WX号:  null-lab**
+**技术 + 合作：WX号:  EmakefunService**
